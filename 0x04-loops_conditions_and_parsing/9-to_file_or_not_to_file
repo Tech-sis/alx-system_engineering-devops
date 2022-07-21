@@ -2,17 +2,20 @@
 # A script that gives information about a file
 file="school"
 
-if [ -e "$file" ]; then
+if test -e "$file"
+then
 	echo "$file file exists"
 
-	if [ ! -s "$file" ]; then
+	if test ! -s "$file"
+	then
 		echo "$file file is not empty"
 	else
 		echo "school file is empty"
 	fi
 
 
-	if [ -f "$file" ]; then 
+	if test -f "$file"
+	then 
 		echo "$file file is a regular file"
 	fi
 
