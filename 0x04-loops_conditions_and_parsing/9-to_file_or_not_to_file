@@ -2,7 +2,7 @@
 # A script that gives information about a file
 file="school"
 
-if [ -e "$file" ]; then &&  && [ -f school ]
+if [ -e "$file" ]; then
 	echo "$file file exists"
 	if [ -s "$file" ]; then
 		echo "$file file is not empty"
