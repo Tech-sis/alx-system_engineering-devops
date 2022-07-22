@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# Display the lines containing the word "bash" 
-# shellcheck disable=SC2009
+# Script kills another script running in another terminal forcibly
 
-ps -auxf | grep bash
+pkill -KILL -f "7-highlander"
