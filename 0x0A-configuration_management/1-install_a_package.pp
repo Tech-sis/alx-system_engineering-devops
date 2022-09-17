@@ -1,6 +1,6 @@
-# Install a package using Puppet
-
-exec { 'install flask':
-	command => '/usr/bin/pip install flask',
-	creates => '/usr/local/lib/python2.7/dist-packages/flask',
+# Install flask
+package { 'flask':
+  ensure   => '2.1.0',
+  name     => 'flask',
+  provider => 'pip3',
 }
