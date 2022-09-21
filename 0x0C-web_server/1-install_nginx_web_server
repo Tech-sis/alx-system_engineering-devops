@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
-# Install a nginx web server listening on port 80.
-#
-# Also, when querying nginx at its root / with a GET
-# request, it returns a page that contains the string
-# 'Holberton School'.
+# Install nginx on web server; Nginx should be listening on port 80
+# Querying Nginx at its root (/) with a GET request (requesting a page)
+# 	   curl http://35.229.54.225/   --> returns string "Holberton School"
+#	   curl http://35.229.54.225/   --> returns header info
 
-apt update
-apt install -y nginx
-ufw allow 'Nginx HTTP'
-echo "Hello World!" > /var/www/html/index.html
-service nginx restart
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo "Hello World!" | sudo tee /usr/share/nginx/html/index.html
+sudo service nginx start
