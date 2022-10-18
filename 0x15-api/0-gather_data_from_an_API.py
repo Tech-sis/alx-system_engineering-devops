@@ -1,0 +1,31 @@
+#!/usr/bin/python3
+"""Request from API"""
+import requests
+from sys import argv
+
+
+def display():
+    """return API data"""
+    users = requests.get('https://jsonplaceholder.typicode.com/users/')
+    for i in users.json():
+        if i.get('id') == int(argv[1]):
+            EMPLOYEE_NAME = (i.get('name'))
+            break
+    TOTAL_NUM_OF_TASKS = 0
+    NUMBER_OF_DONE_TASKS = 0
+    TASK_TITLE = []
+    todos = requests.get("https://jsonplaceholder.typicode.com/todos/")
+    for t in todos.json():
+        if t.get('userId') == int(argv[1]):
+            TOTAL_NUM_OF_TASKS += 1
+            if t.get('completed') is True:
+                NUMBER_OF_DONE_TASKS += 1
+                TASK_TITLE.append(t.get('title'))
+    print("Employee {} is done with tasks({}/{}):".format(EMPLOYEE_NAME,
+          NUMBER_OF_DONE_TASKS, TOTAL_NUM_OF_TASKS))
+    for title in TASK_TITLE:
+        print("\t {}".format(title))
+
+
+if __name__ == "__main__":
+    display()
